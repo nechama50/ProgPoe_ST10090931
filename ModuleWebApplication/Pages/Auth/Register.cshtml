@@ -1,0 +1,63 @@
+﻿@page
+@model ModuleWebApplication.Pages.Auth.RegisterModel
+@{
+    ViewData["Title"] = "Register Page";
+}
+
+<div class="overlay">
+    <!-- LOGN IN FORM by Omar Dsoky -->
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <!--   con = Container  for items in the form-->
+        <div class="con">
+            <!--     Start  header Content  -->
+            <header class="head-form">
+                <h2>Create Account</h2>
+                <!--     A welcome message or an explanation of the registration form -->
+                <p>Create your account by entering your details bellow</p>
+            </header>
+            <!--     End  header Content  -->
+            <br>
+            <div class="field-set">
+                <!--   user name Input-->
+                <input class="form-input" id="txt-input" type="text" placeholder="Username" required asp-for="User.UserName"/>
+                <span asp-validation-for="User.UserName" class="text-danger"></span>
+
+                <!--   email Input-->
+                <input class="form-input" id="txt-input" type="text" placeholder="Email" required asp-for="User.Email"/>
+                <span asp-validation-for="User.Email" class="text-danger"></span>
+
+                <!--   Password Input-->
+                <input class="form-input" type="password" placeholder="Password"  name="password" required asp-for="User.PasswordHash"/>
+                <span asp-validation-for="User.PasswordHash" class="text-danger"></span>
+
+                <!--  Semester start date Input-->
+                <input class="form-input" id="txt-input" type="date" placeholder="Semester Start Date" required asp-for="User.StartDate"/>
+                <span asp-validation-for="User.StartDate" class="text-danger"></span>
+
+                <!-- Number of weeks Input -->
+                <input class="form-input" id="txt-input" type="number" placeholder="Semester number of weeks" required asp-for="User.NumofWeeks"/>
+                <span asp-validation-for="User.NumofWeeks" class="text-danger"></span>
+
+                <br />
+
+            </div>
+
+            <!--   other buttons -->
+            <div class="buttonContainer">
+                <!--        buttons -->
+                <!--      button LogIn -->
+                <input class="btn" type="submit"/>
+                <!--     Sign Up button -->
+                <a class="btn rightSideBtn" asp-page="/Index">
+                    Home 
+                </a>
+                <!--      End Other the Division -->
+            </div>
+
+            <!--   End Conrainer  -->
+        </div>
+
+        <!-- End Form -->
+    </form>
+</div>

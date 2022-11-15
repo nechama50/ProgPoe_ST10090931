@@ -1,0 +1,58 @@
+﻿@page
+@model ModuleWebApplication.Pages.Modules.RemainingHoursModel
+@{
+    ViewData["Title"] = "Module Information";
+}
+
+<div class="overlay">
+    <!-- LOGN IN FORM by Omar Dsoky -->
+    <form>
+        <!--   con = Container  for items in the form-->
+        <div class="con">
+            <!--     Start  header Content  -->
+            <header class="head-form">
+                <h2>Calculate Remaining Hours</h2>
+                <!--     A welcome message or an explanation of the login form -->
+                <p>Enter the bellow details to calculate the remaininf hours left of self study</p>
+            </header>
+            <!--     End  header Content  -->
+            <br>
+            <div class="field-set">
+
+                <!--Drop down option-->
+                <label for="dropdown">Select a module:</label> 
+                <select name="dropdown" id="dropdown">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+
+                <br/>
+
+                <!--   Hours worked Input-->
+                <input class="form-input" id="txt-input" type="number" placeholder="Hours Worked" required>
+
+                <!--   Date Input-->
+                <input class="form-input" type="date" placeholder="Day of Week" id="pwd" name="Date" required>            
+            </div>
+
+            <!--   other buttons -->
+            <div class="buttonContainer">
+                <!--        buttons -->
+                <!--      button calculate -->
+                <input class="btn" type="submit" value="Calculate"/>
+                <!--     Home button -->
+                <a class="btn rightSideBtn" asp-page="/Index">
+                    Home
+                </a>
+                <!--      End Other the Division -->
+            </div>
+
+            <!--   End Conrainer  -->
+        </div>
+
+        <!-- End Form -->
+    </form>
+</div>
+

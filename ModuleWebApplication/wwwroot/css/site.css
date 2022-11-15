@@ -52,6 +52,18 @@ body {
 
 /* End body rules */
 
+
+.MainContentBackground {
+    width: 450px;
+    min-height: 500px;
+    height: auto;
+    border-radius: 5px;
+    margin: 2% auto;
+    box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+    padding: 2%;
+    background: white;
+}
+
 /* Start form  attributes */
 form {
     width: 450px;
@@ -213,4 +225,30 @@ button:hover {
     100% {
         transform: translateY(5px);
     }
+}
+
+.field-set {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.rightSideBtn {
+    margin-left: 10px;
+}
+
+
+.TblDisplay {
+    width : 100%;
+}
+
+.btnSize {
+    width: 10em;
+    height: 3em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

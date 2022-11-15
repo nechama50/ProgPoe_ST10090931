@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ProgPoe2_ST10090931\ModuleModelLibraryOld\ModuleModelLibrary.csproj" />
     <ProjectReference Include="..\..\ProgPoe2_ST10090931\POE.EntityFramework\POE.EntityFramework.csproj" />
   </ItemGroup>
 

@@ -1,7 +1,20 @@
+using Microsoft.EntityFrameworkCore;
+using ModuleModelLibrary;
+using POE.EntityFramework;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+//connecting the database 
+builder.Services.AddDbContextPool<dbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//Dependency Injection for the handlers 
+builder.Services.AddScoped<IAuthHandler , AuthHandler>();
+
+//access to the HTTPcontext
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -14,6 +27,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -21,5 +35,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.UseSession();
 
 app.Run();

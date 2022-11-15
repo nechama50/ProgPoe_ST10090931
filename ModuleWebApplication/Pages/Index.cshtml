@@ -3,8 +3,50 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<div class="MainContentBackground">
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <header class="head-form">
+        <h2>Module Organizer</h2>
+    </header>
+
+    <div class="text-center">
+        <p> <br/>
+        Being in school and university is not an easy task. 
+
+        <br /> <br/>
+        The Module Organizer has been created to help you organize your modules
+        and understand how many hours of work you will need to put in to each module.
+
+        <br/><br/>
+        Organization is a very important aspect that will need to be involved in your studies. The module organizer
+        helps to ensure that you are organized and up to date with the amount of study time you will need to complete 
+        in order to reach your goal.
+
+        <br/> <br/>
+        A user will need to log in or create an account in order to use the module organizer.
+
+        <br/> <br/>
+        Good Luck with your studies @Model.UserName !
+
+        <br/>
+
+        </p>
+
+            <!--   other buttons -->
+            <div class="buttonContainer">
+                <!--        buttons -->
+                <!--      button LogIn -->
+                <a class="btn" asp-page="/Auth/LogIn"> Log In </a>
+                <!--     Sign Up button -->
+                <a class="btn rightSideBtn" asp-page="/Auth/Register">
+                    Sign Up
+                </a>
+                <!--      End Other the Division -->
+            </div>
+    </div>
+
+   
+</div>
+
 </div>
