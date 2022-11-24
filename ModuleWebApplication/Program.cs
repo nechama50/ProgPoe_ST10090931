@@ -12,6 +12,7 @@ builder.Services.AddDbContextPool<dbContext>(options => options.UseSqlServer(bui
 
 //Dependency Injection for the handlers 
 builder.Services.AddScoped<IAuthHandler , AuthHandler>();
+builder.Services.AddScoped<IModuleHandler , ModuleHandler>();
 
 //access to the HTTPcontext
 builder.Services.AddSession();

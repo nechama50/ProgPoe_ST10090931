@@ -6,7 +6,7 @@
 
 <div class="overlay">
     <!-- LOGN IN FORM by Omar Dsoky -->
-    <form>
+    <form method="post">
         <!--   con = Container  for items in the form-->
         <div class="con">
             <!--     Start  header Content  -->
@@ -21,20 +21,16 @@
 
                 <!--Drop down option-->
                 <label for="dropdown">Select a module:</label> 
-                <select name="dropdown" id="dropdown">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                <select class="dropDownStyle" asp-items="Model.ModulesSL" asp-for="SelectedModule">
                 </select>
 
                 <br/>
 
                 <!--   Hours worked Input-->
-                <input class="form-input" id="txt-input" type="number" placeholder="Hours Worked" required>
+                <input class="form-input" id="txt-input" type="number" placeholder="Hours Worked" required asp-for="HoursWorked">
 
                 <!--   Date Input-->
-                <input class="form-input" type="date" placeholder="Day of Week" id="pwd" name="Date" required>            
+                <input class="form-input" type="date" placeholder="Day of Week" id="pwd" name="Date" required asp-for="TrackedDate">            
             </div>
 
             <!--   other buttons -->
@@ -54,5 +50,20 @@
 
         <!-- End Form -->
     </form>
+
+    @if (Model.Submited == true)
+    {
+        <!--Display the remaining hours calculations-->
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">@Model.UpdatedModule.Name</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Completed self study hours >> @Model.UpdatedModule.SelfStudyHours </h6>
+                <p class="card-text">Remanining self study hours >> @Model.UpdatedModule.RemainingHours</p>
+                <a class="card-link" asp-page="/Index">Home</a>
+                <a class="card-link" asp-page="/Modules/RemainingHours">Close</a>
+            </div>
+        </div>
+    }
+    
 </div>
 

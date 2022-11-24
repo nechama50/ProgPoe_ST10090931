@@ -7,7 +7,7 @@
 
 <div class="overlay">
     <!-- LOGN IN FORM by Omar Dsoky -->
-    <form class="TblDisplay">
+    <form class="TblDisplay" id="remove" method="post">
         <!--   con = Container  for items in the form-->
         <div class="con">
             <!--     Start  header Content  -->
@@ -30,13 +30,21 @@
                         <th>Self-Study Hours</th>
                     </tr>
                 </thead>
+                @foreach(var module in Model.Modules) {
+
                     <tr>
-                        <td>a</td>
-                        <td>b</td>
-                        <td>c</td>
-                        <td>d</td>
-                        <td>e</td>
-                    </tr>          
+                        <td>@module.Code</td>
+                        <td>@module.Name</td>
+                        <td>@module.NumOfCredits</td>
+                        <td>@module.ClassHours</td>
+                        <td>@module.SelfStudyHours</td>
+                        <td>
+                            <span>
+                                <button class="btn-danger btn-rounded deleteBtn" type="submit" form="remove" value="@module.Id" name="BtnRemove" asp-page-handler="Remove">Delete Module</button>
+                            </span>
+                        </td>
+                    </tr>
+                }                            
             </table>
 
 
@@ -45,8 +53,6 @@
                 <!--        buttons -->
                 <!--      button remaining hours -->
                 <a class="btn btnSize" asp-page="/Modules/RemainingHours"> Remaining Hours </a>
-                <!--      button delete module -->
-                <button class="btn rightSideBtn btnSize"> Delete Module </button>
                 <!--      button home-->
                 <a class="btn rightSideBtn btnSize" asp-page="/Index"> Home</a>
 

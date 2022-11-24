@@ -252,3 +252,21 @@ button:hover {
     justify-content: center;
     align-items: center;
 }
+
+.dropDownStyle {
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+    width: 8rem;
+}
+
+.overlay {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.deleteBtn {
+    width: 10rem;
+}

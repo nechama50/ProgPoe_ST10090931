@@ -6,7 +6,7 @@
 
 <div class="overlay">
     <!-- LOGN IN FORM by Omar Dsoky -->
-    <form>
+    <form method="post">
         <!--   con = Container  for items in the form-->
         <div class="con">
             <!--     Start  header Content  -->
@@ -20,16 +20,16 @@
             <div class="field-set">
 
                 <!-- Module code Input-->
-                <input class="form-input" id="txt-input" type="text" placeholder="Module Code" required>
+                <input class="form-input" id="txt-input" type="text" placeholder="Module Code" required asp-for="Module.Code">
 
                 <!--   Module name Input-->
-                <input class="form-input" id="txt-input" type="text" placeholder="Module Name" required>
+                <input class="form-input" id="txt-input" type="text" placeholder="Module Name" required asp-for="Module.Name">
 
                 <!--   Credits Input-->
-                <input class="form-input" id="txt-input" type="number" placeholder="Number of credits" required>
+                <input class="form-input" id="txt-input" type="number" placeholder="Number of credits" required asp-for="Module.NumOfCredits">
 
                 <!--   Class hours Input-->
-                <input class="form-input" id="txt-input" type="number" placeholder="Class Hours per week" required>
+                <input class="form-input" id="txt-input" type="number" placeholder="Class Hours per week" required asp-for="Module.ClassHours">
 
                 <br>  
 
@@ -38,9 +38,9 @@
             <!--   other buttons -->
             <div class="buttonContainer">
                 <!--        buttons -->
-                <!--      button display -->
+                <!--   display button -->
                 <a class="btn" asp-page="/Modules/Display"> Display </a>
-                <!--     Sign Up button -->
+                <!--     add module button -->
                 <input class="btn rightSideBtn" type="submit" value="Add Module"/>
                 <!--      End Other the Division -->
             </div>

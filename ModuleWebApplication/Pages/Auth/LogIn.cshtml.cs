@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ModuleModelLibrary;
+using POE.EntityFramework.Models;
 
 namespace ModuleWebApplication.Pages.Auth
 {
@@ -15,31 +16,27 @@ namespace ModuleWebApplication.Pages.Auth
         //creating constructor - using lambda - taking in dependancy injection
         public LogInModel(IAuthHandler authhandler) => AuthHandler = authhandler; 
 
-        public void OnGet()
-        {
-
-        }
 
         //
         public async Task<IActionResult> OnPostAsync()
         {
               //1. go to AuthHandler
              //2. AuthHandler will call AuthService (database layer)
-            //3. Compare the entered values to the values in the database
+            //3. Compare/capture the entered values to the values in the database
 
             try
             {
                 //set the return value for the backgroundworker
-                bool Result = await AuthHandler.LogInUser(UserName, Password);
+                User? Result = await AuthHandler.LogInUser(UserName, Password);
 
                 //calling authentication handeler to log in user
-                if (Result == true)
+                if (Result != null)
                 {
                     //setting the user name after user is logged in
-                    HttpContext.Session.SetString("UserName" , UserName);
+                    HttpContext.Session.SetInt32("UserId" , Result.Id);
 
                     //calling the next window 
-                    return RedirectToPage("/Index");
+                    return RedirectToPage("/Modules/ModuleInformation");
 
                 }
                 else
